@@ -21,5 +21,3 @@ test/output
 .tscache
 test/public
 .vscode/
-
-*.js
