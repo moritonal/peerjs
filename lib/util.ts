@@ -1,6 +1,9 @@
-import * as BinaryPack from "peerjs-js-binarypack";
+import * as BinaryPack from "binarypack";
 import { Supports } from './supports';
 import { UtilSupportsObj } from '..';
+import * as Blob from "node-blob"
+import * as FileReader from "filereader"
+import {RTCPeerConnection, RTCDataChannel} from "wrtc"
 
 const DEFAULT_CONFIG = {
   iceServers: [
@@ -149,6 +152,6 @@ export const util = new class {
   }
 
   isSecure(): boolean {
-    return location.protocol === "https:";
+    return true;
   }
 }

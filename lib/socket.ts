@@ -1,6 +1,7 @@
 import { EventEmitter } from "eventemitter3";
 import logger from "./logger";
 import { SocketEventType, ServerMessageType } from "./enums";
+import * as WebSocket from "ws"
 
 /**
  * An abstraction on top of WebSockets to provide fastest
@@ -45,6 +46,7 @@ export class Socket extends EventEmitter {
       let data;
 
       try {
+        //@ts-ignore
         data = JSON.parse(event.data);
         logger.log("Server message received:", data);
       } catch (e) {

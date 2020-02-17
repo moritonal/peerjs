@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
+    "lib": ["ES2015"],
     "downlevelIteration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

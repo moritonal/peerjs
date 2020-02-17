@@ -8,6 +8,6 @@ export const peerjs = {
 
 export default Peer;
 
-(<any>window).peerjs = peerjs;
+//(<any>window).peerjs = peerjs;
 /** @deprecated Should use peerjs namespace */
-(<any>window).Peer = Peer;
+//(<any>window).Peer = Peer;

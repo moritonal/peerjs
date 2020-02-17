@@ -3,7 +3,7 @@ import { expect } from "chai";
 import { Peer } from "../lib/peer";
 import { Server } from 'mock-socket';
 import { ConnectionType, ServerMessageType, PeerErrorType, PeerEventType } from "../lib/enums";
-
+import {MediaStreamTrack, MediaStream} from "wrtc"
 const createMockServer = (): Server => {
     const fakeURL = 'ws://localhost:8080/peerjs?key=peerjs&id=1&token=testToken';
     const mockServer = new Server(fakeURL);
@@ -76,6 +76,7 @@ describe("Peer", function () {
             expect(mediaConnection.peer).to.eq('2');
             expect(mediaConnection.options).to.include(mediaOptions);
             expect(mediaConnection.metadata).to.deep.eq(mediaOptions.metadata);
+            // @ts-ignore
             expect(mediaConnection.peerConnection.getSenders()[0].track.id).to.eq(track.id);
 
             peer1.once('open', (id) => {

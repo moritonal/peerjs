@@ -1,7 +1,9 @@
-import { webRTCAdapter } from './adapter';
+// import { webRTCAdapter } from './adapter';
+import {RTCPeerConnection} from "wrtc"
 
 export const Supports = new class {
-  readonly isIOS = ['iPad', 'iPhone', 'iPod'].includes(navigator.platform);
+
+  readonly isIOS = ['iPad', 'iPhone', 'iPod'].includes("Node");
   readonly supportedBrowsers = ['firefox', 'chrome', 'safari'];
 
   readonly minFirefoxVersion = 59;
@@ -9,7 +11,7 @@ export const Supports = new class {
   readonly minSafariVersion = 605;
 
   isWebRTCSupported(): boolean {
-    return typeof RTCPeerConnection !== 'undefined';
+    return true;
   };
 
   isBrowserSupported(): boolean {
@@ -28,20 +30,19 @@ export const Supports = new class {
   }
 
   getBrowser(): string {
-    return webRTCAdapter.browserDetails.browser;
+    return "Node"
   }
 
   getVersion(): number {
-    return webRTCAdapter.browserDetails.version || 0;
+    return 1000 || 0;
   }
 
   isUnifiedPlanSupported(): boolean {
     const browser = this.getBrowser();
-    const version = webRTCAdapter.browserDetails.version || 0;
+    const version = 1000 || 0;
 
     if (browser === 'chrome' && version < 72) return false;
     if (browser === 'firefox' && version >= 59) return true;
-    if (!window.RTCRtpTransceiver || !('currentDirection' in RTCRtpTransceiver.prototype)) return false;
 
     let tempPc: RTCPeerConnection;
     let supported = false;

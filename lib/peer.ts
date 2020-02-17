@@ -15,6 +15,7 @@ import { BaseConnection } from "./baseconnection";
 import { ServerMessage } from "./servermessage";
 import { API } from "./api";
 import { PeerConnectOption, PeerJSOption } from "..";
+import {MediaStream} from "wrtc"
 
 class PeerOptions implements PeerJSOption {
   debug?: LogLevel; // 1: Errors, 2: Warnings, 3: All logs
@@ -113,7 +114,11 @@ export class Peer extends EventEmitter {
 
     // Detect relative URL host.
     if (this._options.host === "/") {
-      this._options.host = window.location.hostname;
+      //@ts-ignore
+      if (window !== null) {
+        //@ts-ignore
+        this._options.host = window.location.hostname;
+      }
     }
 
     // Set path correctly.

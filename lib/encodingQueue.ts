@@ -1,5 +1,7 @@
 import { EventEmitter } from "eventemitter3";
 import logger from "./logger";
+import { Blob } from "node-fetch";
+import * as FileReader from "filereader"
 
 export class EncodingQueue extends EventEmitter {
   readonly fileReader: FileReader = new FileReader();

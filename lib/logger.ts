@@ -20,7 +20,7 @@ class Logger {
     get logLevel(): LogLevel { return this._logLevel; }
 
     set logLevel(logLevel: LogLevel) { this._logLevel = logLevel; }
-
+    
     log(...args: any[]) {
         if (this._logLevel >= LogLevel.All) {
             this._print(LogLevel.All, ...args);

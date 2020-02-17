@@ -12,6 +12,9 @@ import { BaseConnection } from "./baseconnection";
 import { ServerMessage } from "./servermessage";
 import { EncodingQueue } from './encodingQueue';
 import { DataConnection as IDataConnection } from '../index';
+import {RTCDataChannel} from "wrtc"
+
+import Blob from "node-blob"
 
 /**
  * Wraps a DataChannel between two Peers.
@@ -22,7 +25,7 @@ export class DataConnection extends BaseConnection implements IDataConnection {
 
   private _negotiator: Negotiator;
   readonly label: string;
-  readonly serialization: SerializationType;
+  serialization: SerializationType;
   readonly reliable: boolean;
   stringify: (data: any) => string = JSON.stringify;
   parse: (data: string) => any = JSON.parse;

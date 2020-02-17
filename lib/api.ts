@@ -1,6 +1,8 @@
 import { util } from "./util";
 import logger from "./logger";
 
+import fetch from "node-fetch"
+
 export class API {
   constructor(private readonly _options: any) { }
 

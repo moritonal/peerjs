@@ -5,6 +5,8 @@ import { DataConnection } from "./dataconnection";
 import { ConnectionType, PeerErrorType, ConnectionEventType, ServerMessageType } from "./enums";
 import { BaseConnection } from "./baseconnection";
 
+import { RTCPeerConnection, RTCSessionDescription, RTCIceCandidate,RTCDataChannelInit, MediaStream} from "wrtc"
+
 /**
  * Manages all negotiations between Peers.
  */
@@ -168,7 +170,7 @@ export class Negotiator {
     this.connection.peerConnection = null;
 
     //unsubscribe from all PeerConnection's events
-    peerConnection.onicecandidate = peerConnection.oniceconnectionstatechange = peerConnection.ondatachannel = peerConnection.ontrack = () => { };
+    // peerConnection.onIceCandidate = peerConnection.oniceconnectionstatechange = peerConnection.ondatachannel = peerConnection.ontrack = () => { };
 
     const peerConnectionNotClosed = peerConnection.signalingState !== "closed";
     let dataChannelNotClosed = false;

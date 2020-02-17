@@ -12,8 +12,6 @@
   "scripts": {
     "build": "parcel build lib/exports.ts --out-file peerjs.min.js",
     "build-nonminified": "parcel build lib/exports.ts --out-file peerjs.js --no-minify",
-    "prepublish": "npm run build",
-    "postinstall": "opencollective-postinstall",
     "test": "mocha -r ts-node/register -r jsdom-global/register test/**/*.ts"
   },
   "release": {
@@ -23,6 +21,7 @@
   "devDependencies": {
     "@types/chai": "^4.2.2",
     "@types/mocha": "^5.2.7",
+    "@types/node-fetch": "^2.5.4",
     "chai": "^4.2.0",
     "jsdom": "^15.1.1",
     "jsdom-global": "^3.0.2",
@@ -36,14 +35,18 @@
   "dependencies": {
     "@types/node": "^10.14.17",
     "@types/webrtc": "^0.0.25",
+    "@types/websocket": "^1.0.0",
+    "@types/ws": "^7.2.1",
+    "binarypack": "0.0.4",
     "eventemitter3": "^3.1.2",
-    "opencollective": "^1.0.3",
-    "opencollective-postinstall": "^2.0.0",
+    "filereader": "^0.10.3",
+    "js-binarypack": "0.0.9",
+    "node-blob": "0.0.2",
+    "node-fetch": "^2.6.0",
     "peerjs-js-binarypack": "1.0.1",
-    "webrtc-adapter": "^7.3.0"
-  },
-  "collective": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/peer"
+    "webrtc-adapter": "^7.3.0",
+    "websocket": "^1.0.31",
+    "wrtc": "^0.4.3",
+    "ws": "^7.2.1"
   }
 }

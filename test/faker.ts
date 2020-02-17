@@ -1,5 +1,5 @@
 import { WebSocket } from 'mock-socket';
-import { adapter as _ } from 'webrtc-adapter';
+import {RTCRtpSender, RTCDTMFSender} from "wrtc"
 
 const fakeGlobals = {
     WebSocket,
@@ -63,4 +63,5 @@ const fakeGlobals = {
 }
 
 Object.assign(global, fakeGlobals);
+//@ts-ignore
 Object.assign(window, fakeGlobals);
